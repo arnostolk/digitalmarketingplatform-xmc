@@ -29,6 +29,33 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
   </div>
 );
 
+export const Blok = (props: PromoProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  if (props.fields) {
+    return (
+      <div className={`component promo ${props.params.styles}`} id={id ? id : undefined}>
+        <div className="component-content">
+          <div className="field-promoicon">
+            <JssImage field={props.fields.PromoIcon} />
+          </div>
+          <div className="promo-text">
+            <div>
+              <div className="field-promotext">
+                <JssRichText field={props.fields.PromoText} />
+              </div>
+            </div>
+            <div className="field-promolink">
+              <JssLink field={props.fields.PromoLink} />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return <PromoDefaultComponent {...props} />;
+};
+
 export const Default = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   if (props.fields) {
@@ -41,7 +68,7 @@ export const Default = (props: PromoProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                From VGZ Rendering <JssRichText field={props.fields.PromoText} />
+                <JssRichText field={props.fields.PromoText} />
               </div>
             </div>
             <div className="field-promolink">
