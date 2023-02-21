@@ -2,11 +2,13 @@
 @import "variables";
 
 footer {
+  background-color: ;
+
   @include respond-to(mobile-large) {
     padding-top: 0;
   }
   .container-dark-background {
-    background-color: #262626;
+    // background-color: #262626;
   }
 
   .contacts {
