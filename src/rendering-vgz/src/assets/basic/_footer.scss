@@ -1,14 +1,15 @@
 @import "@sass/abstracts/mixins";
 @import "variables";
+@import "@sass/abstracts/vars/colors";
 
 footer {
-  background-color: ;
+  background-color: $vgz01;
 
   @include respond-to(mobile-large) {
     padding-top: 0;
   }
   .container-dark-background {
-    // background-color: #262626;
+    background-color: transparent;
   }
 
   .contacts {
