@@ -5,9 +5,7 @@
 
 .link-list {
     background: $link-list-bg;
-    h1, h2, h3, h4, h5, h6 {
-        @include border-basic(bottom, $link-list-header-border);
-    }
+
     >.component-content {
         ul {
             background: $link-list-items-bg;
@@ -15,12 +13,12 @@
         li {
             background: $link-list-item-bg;
             display: block;
-            font-size: $font-normal;
+            
             a {
                 display: inline;
                 color: $link-list-item-color;
                 position: relative;
-                padding-left: 10px;
+                padding-left: 0;
                 font-size: 1em;
                 text-decoration: none;
                 &:before {

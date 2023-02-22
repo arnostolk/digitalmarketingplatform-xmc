@@ -1,5 +1,6 @@
 // Vgz colors
 $vgz01: #0b6b6f;
+$vgz02: #e5f7f7;
 
 
 //Backgrounds colors
@@ -114,13 +115,13 @@ $lang-selector-item-border-active:$border-basic-active;
 //Site selector
 $site-selector-color:$text-basic;
 //Link List
-$link-list-bg:transparent;
-$link-list-header-border:$border-basic-color;
-$link-list-items-bg:transparent;
-$link-list-item-bg:transparent;
-$link-list-item-color:$text-basic;
-$link-list-item-color-active:$text-basic-active;
-$link-list-item-border-active:$border-basic-color;
+$link-list-bg: null;
+$link-list-header-border: null;
+$link-list-items-bg: null;
+$link-list-item-bg: null;
+$link-list-item-color: $text-white;
+$link-list-item-color-active: $text-white;
+$link-list-item-border-active: null;
 //Login
 $login-bg:transparent;
 //Logout

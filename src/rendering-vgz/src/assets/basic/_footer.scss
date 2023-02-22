@@ -4,19 +4,27 @@
 
 footer {
   background-color: $vgz01;
+  color: #fff;
+  border-top: 75px solid $vgz02;
+  margin-top: 100px;
 
   @include respond-to(mobile-large) {
     padding-top: 0;
   }
+
   .container-dark-background {
     background-color: transparent;
+  }
+
+  .row {
+    --bs-gutter-x: 0;
   }
 
   .contacts {
     font-size: $text-size-14;
 
     a {
-      color: $text-white;
+      color: inherit;
     }
 
     p, span {
@@ -25,7 +33,7 @@ footer {
   }
 
   .indent-inner {
-    padding: 65px;
+    padding: 30px 15px;
 
     @include respond-to(mobile-large) {
       padding: 40px 0;
