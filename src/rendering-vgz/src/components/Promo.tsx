@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Image as JssImage,
   Link as JssLink,
@@ -7,7 +7,10 @@ import {
   Field,
   LinkField,
   Text,
+  GetServerSideComponentProps,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { PcmProduct } from 'src/types/product';
+import { getProduct } from 'src/services/graphQLService';
 
 interface Fields {
   PromoIcon: ImageField;
@@ -19,6 +22,7 @@ interface Fields {
 type PromoProps = {
   params: { [key: string]: string };
   fields: Fields;
+  product: PcmProduct;
 };
 
 const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
@@ -31,6 +35,7 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
 
 export const Blok = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
+
   if (props.fields) {
     return (
       <div className={`component promo ${props.params.styles}`} id={id ? id : undefined}>
@@ -41,7 +46,9 @@ export const Blok = (props: PromoProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <JssRichText field={props.fields.PromoText} />
+                <h4>{props.product.productName}</h4>
+                <div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} />
+                {/* <JssRichText field={props.fields.PromoText} /> */}
               </div>
             </div>
             <div className="field-promolink">
@@ -52,7 +59,6 @@ export const Blok = (props: PromoProps): JSX.Element => {
       </div>
     );
   }
-
   return <PromoDefaultComponent {...props} />;
 };
 
@@ -81,6 +87,14 @@ export const Default = (props: PromoProps): JSX.Element => {
   }
 
   return <PromoDefaultComponent {...props} />;
+};
+
+export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
+  const variables = { id: '0PGgnROQq067_P2aKEH96w' };
+  const product = await getProduct(variables);
+  return {
+    product
+  }
 };
 
 export const WithText = (props: PromoProps): JSX.Element => {
