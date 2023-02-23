@@ -40,7 +40,7 @@ export const Default = (props: InsuranceProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <h3>hoi{productName}</h3>
+                <h3>{productName}</h3>
                 {
                   productLongDescription ?
                   <div dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /> : null
