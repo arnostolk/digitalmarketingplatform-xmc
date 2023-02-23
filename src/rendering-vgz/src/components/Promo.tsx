@@ -33,7 +33,7 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
   </div>
 );
 
-export const Blok = (props: PromoProps): JSX.Element => {
+export const Block = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   if (props.fields) {
