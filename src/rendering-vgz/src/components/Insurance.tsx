@@ -1,10 +1,6 @@
 import React from 'react';
 import {
-  Image as JssImage,
-  Link as JssLink,
-  RichText as JssRichText,
   Field,
-  Text,
   GetServerSideComponentProps,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { PcmProduct } from 'src/types/product';
@@ -42,9 +38,9 @@ export const Default = (props: InsuranceProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <h3>{props.product?.productName}</h3>                
+                <h3>{props.product?.productName}</h3>
                 {
-                  props.product ? 
+                  props.product ?
                   <div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} /> : null
                 }
                 {/* <JssRichText field={props.fields.PromoText} /> */}
@@ -62,7 +58,7 @@ export const Default = (props: InsuranceProps): JSX.Element => {
   return <InsuranceDefaultComponent {...props} />;
 };
 
-export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
+export const getServerSideProps: GetServerSideComponentProps = async (rendering) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const id = (rendering as any).fields?.ContentHubGuid.value;
   if (id && id.length > 0) {
