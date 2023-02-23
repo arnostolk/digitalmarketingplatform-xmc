@@ -1,5 +1,4 @@
-
 export type LongString = {
-	"nl-NL": string;
-	"en-US": string;
+	'nl-NL': string;
+	'en-US': string;
 }

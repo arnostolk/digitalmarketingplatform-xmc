@@ -91,7 +91,7 @@ export const Default = (props: PromoProps): JSX.Element => {
   return <PromoDefaultComponent {...props} />;
 };
 
-export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
+export const getServerSideProps: GetServerSideComponentProps = async (rendering, _layoutData) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const id = (rendering as any).fields?.PromoText2.value;
   if (id && id.length > 0) {

@@ -1,8 +1,7 @@
 import { LongString } from "./LongString";
 
-  export type PcmProduct = {
+export type PcmProduct = {
 	productName: string;
 	productLongDescription: LongString;
 	pCMPriceToProduct: number;
-  }
-  
+}
