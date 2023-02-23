@@ -9,6 +9,8 @@
     >.component-content {
         ul {
             background: $link-list-items-bg;
+            padding-left: 0;
+            margin-top: 15px;
         }
         li {
             background: $link-list-item-bg;

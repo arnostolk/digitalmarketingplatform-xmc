@@ -6,8 +6,9 @@
   h1,
   .field-title {
     >a, >span {
-      @include border-basic(bottom, $border-basic-color);
+      // @include border-basic(bottom, $border-basic-color);
       font-size: $font-extrabig;
+      font-weight: bold;
       margin-bottom: $small-margin;
       color: $title-color;
       line-height: normal;

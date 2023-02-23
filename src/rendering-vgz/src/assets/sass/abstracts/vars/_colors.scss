@@ -1,6 +1,8 @@
 // Vgz colors
 $vgz01: #0b6b6f;
 $vgz02: #e5f7f7;
+$vgz03: #006fce;
+$vgz04: #00549b;
 
 
 //Backgrounds colors
@@ -18,7 +20,7 @@ $bg-black-active:#3d3d3d;
 $bg-dark-gray: #262626;
 //Text colors
 $text-white:#fff !default;
-$text-heading-color: #222 !default;
+$text-heading-color: $vgz01 !default;
 $text-basic:#747474 !default;
 $text-basic-active:#878787 !default;
 $text-blue:#89C6CC !default;
@@ -197,7 +199,7 @@ $tab-container-bg:transparent;
 $tab-container-border:$border-basic-color;
 //Title
 $title-bg:transparent;
-$title-color:$text-basic;
+$title-color: $vgz01;
 $title-color-active:$text-basic-active;
 //Toggle
 $toggle-header-bg:$bg-basic-color;
