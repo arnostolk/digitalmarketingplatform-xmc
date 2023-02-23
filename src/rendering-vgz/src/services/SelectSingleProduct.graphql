@@ -1,0 +1,7 @@
+query product($id: String!){
+	m_PCM_Product(id: $id) {
+		productName
+		productLongDescription
+		pCMPriceToProduct
+	}
+}
