@@ -18,6 +18,8 @@ footer {
 
   .row {
     --bs-gutter-x: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .contacts {

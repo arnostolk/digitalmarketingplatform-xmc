@@ -13,12 +13,13 @@
         li {
             background: $link-list-item-bg;
             display: block;
+            margin-bottom: 5px;
             
             a {
                 display: inline;
                 color: $link-list-item-color;
                 position: relative;
-                padding-left: 0;
+                padding-left: 12px;
                 font-size: 1em;
                 text-decoration: none;
                 &:before {
