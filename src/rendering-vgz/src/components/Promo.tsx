@@ -46,8 +46,11 @@ export const Blok = (props: PromoProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <h4>{props.product.productName}</h4>
-                <div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} />
+                <h3>{props.product.productName}</h3>                
+                {
+                  props.product ? 
+                  <div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} /> : null
+                }
                 {/* <JssRichText field={props.fields.PromoText} /> */}
               </div>
             </div>
@@ -90,10 +93,16 @@ export const Default = (props: PromoProps): JSX.Element => {
 };
 
 export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
-  const variables = { id: '0PGgnROQq067_P2aKEH96w' };
-  const product = await getProduct(variables);
-  return {
-    product
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const id = (rendering as any).fields?.PromoText2.value;
+  if (id && id.length > 0) {
+    const variables = { id };
+    const product = await getProduct(variables);
+    return {
+      product
+    }
+  } else {
+    return null;
   }
 };
 
