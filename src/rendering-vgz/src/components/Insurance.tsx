@@ -27,6 +27,8 @@ const InsuranceDefaultComponent = (props: InsuranceProps): JSX.Element => (
 export const Default = (props: InsuranceProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
+  const { productName, productLongDescription } = {...props.product};
+
   if (props.fields) {
     return (
       <div className={`component promo ${props.params.styles}`} id={id ? id : undefined}>
@@ -38,12 +40,11 @@ export const Default = (props: InsuranceProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <h3>{props.product?.productName}</h3>
+                <h3>hoi{productName}</h3>
                 {
-                  props.product ?
-                  <div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} /> : null
+                  productLongDescription ?
+                  <div dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /> : null
                 }
-                {/* <JssRichText field={props.fields.PromoText} /> */}
               </div>
             </div>
             <div className="field-promolink">
