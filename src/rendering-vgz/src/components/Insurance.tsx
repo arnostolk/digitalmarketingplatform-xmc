@@ -11,7 +11,7 @@ import { PcmProduct } from 'src/types/product';
 import { getProduct } from 'src/services/graphQLService';
 
 interface Fields {
-  InsuranceContentHubGuid: Field<string>;
+  ContentHubGuid: Field<string>;
 }
 
 type InsuranceProps = {
@@ -42,7 +42,7 @@ export const Default = (props: InsuranceProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <h3>{props.product.productName}</h3>                
+                <h3>{props.product?.productName}</h3>                
                 {
                   props.product ? 
                   <div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} /> : null
@@ -64,7 +64,7 @@ export const Default = (props: InsuranceProps): JSX.Element => {
 
 export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const id = (rendering as any).fields?.InsuranceContentHubGuid.value;
+  const id = (rendering as any).fields?.ContentHubGuid.value;
   if (id && id.length > 0) {
     const variables = { id };
     const product = await getProduct(variables);
