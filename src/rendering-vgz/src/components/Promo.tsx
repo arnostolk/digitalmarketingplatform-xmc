@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Image as JssImage,
   Link as JssLink,
@@ -46,10 +46,9 @@ export const Blok = (props: PromoProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <h3>{props.product.productName}</h3>                
                 {
-                  props.product ? 
-                  <div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} /> : null
+                  props.product && props.product.productLongDescription?.['en-US'] && props.product.productLongDescription?.['en-US'].length > 0 ?
+                    <><h4>{props.product.productName}</h4><div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} /></> : <JssRichText field={props.fields.PromoText} />
                 }
                 {/* <JssRichText field={props.fields.PromoText} /> */}
               </div>
