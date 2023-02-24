@@ -73,29 +73,27 @@ export const Details = (props: InsuranceProps): JSX.Element => {
             {/* <JssImage field={props.fields.PromoIcon} /> */}
           </div>
           <div className="promo-text">
-            <div>
+          <div>
               <div className="field-promotext">
                 <h1>{productName} voor {pCMPriceToProduct}</h1>
                 {
                   props.product && productLongDescription?.['en-US'] && productLongDescription?.['en-US'].length > 0 ?
-                    <><div dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /></> : null
+                    <div className="demo-details__kader" dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /> : null
                 }
               </div>
 
-              <hr />
-
-              <h3>Wat vergoedt de basisverzekering?</h3>
+              <h2>Wat vergoedt de basisverzekering?</h2>
               <p>De overheid bepaalt welke zorgkosten de basisverzekering vergoedt. Hieronder zie je voorbeelden van zorg die wel of niet uit de basisverzekering vergoed worden.</p>
 
-              <div>
+              <div className="demo-details__procons">
                 {
                   props.product && productReimbursement?.['en-US'] && productReimbursement?.['en-US'].length > 0 ?
-                    <><div dangerouslySetInnerHTML={{ __html: productReimbursement?.['en-US'] }} /></> : null
+                    <div dangerouslySetInnerHTML={{ __html: productReimbursement?.['en-US'] }} /> : null
                 }
 
                 {
                   props.product && productNonReimbursement?.['en-US'] && productNonReimbursement?.['en-US'].length > 0 ?
-                    <><div dangerouslySetInnerHTML={{ __html: productNonReimbursement?.['en-US'] }} /></> : null
+                    <div dangerouslySetInnerHTML={{ __html: productNonReimbursement?.['en-US'] }} /> : null
                 }
               </div>
             </div>

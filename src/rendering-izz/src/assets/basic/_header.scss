@@ -1,6 +1,6 @@
-@import "@sass/abstracts/vars/colors";
-@import "@sass/abstracts/mixins";
-@import "variables";
+@import '@sass/abstracts/vars/colors';
+@import '@sass/abstracts/mixins';
+@import 'variables';
 
 .prod-mode {
   #header {
@@ -21,12 +21,13 @@ header {
 
   #header {
     display: grid;
-    grid-template-areas: "logo meta"
-      "main main";
-    grid-template-columns: 100px 1fr;
-    grid-template-rows: 85px 40px;
+    grid-template-areas:
+      'logo meta'
+      'main main';
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 70px 55px;
     padding: 10px 15px 0;
-    
+
     @media (min-width: 992px) {
       max-width: 960px;
     }
@@ -41,11 +42,42 @@ header {
 
     .component.navigation {
       padding: 0;
+      position: relative;
 
       ul {
         display: flex;
         flex-direction: row;
         margin: 5px 0 0;
+      }
+
+      .level1 > ul {
+        background-color: #fff;
+        position: absolute;
+        z-index: 10;
+        right: 0;
+        bottom: 0;
+        border-radius: 5px;
+        padding: 10px 0;
+        opacity: .6;
+        transition: .6s linear;
+
+        &:hover {
+          opacity: 1;
+          transition: .1s linear;
+        }
+
+        a {
+          font-size: 14px;
+
+          &::after {
+            content: unset;
+          }
+        }
+
+        ul {
+          padding-left: 0;
+          margin-top: 0;
+        }
       }
 
       &:first-of-type {
@@ -58,7 +90,7 @@ header {
         }
 
         :not(:last-child) a::after {
-          content: "|";
+          content: '|';
           padding-left: 15px;
         }
       }
@@ -70,17 +102,18 @@ header {
           white-space: nowrap;
           color: $vgz01;
           margin-right: 15px;
+          border: 0;
 
           &::after {
-            content: ">";
+            content: '>';
             display: inline-block;
             transform: scaleX(1.5) translateY(1px) rotate(90deg);
             margin-left: 10px;
-          font-weight: bold;
+            font-weight: bold;
           }
         }
 
-        .active a {
+        .active > * > a {
           font-weight: bold;
         }
       }

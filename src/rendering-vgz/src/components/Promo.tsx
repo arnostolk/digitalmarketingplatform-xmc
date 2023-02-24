@@ -36,14 +36,16 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
 export const Block = (props: PromoProps): JSX.Element => {
 
   const id = props.params.RenderingIdentifier;
-  const { productName, productLongDescription, pCMPriceToProduct } = {...props.product};
+  const { productName, productLongDescription, pCMPriceToProduct, pCMProductToAsset } = {...props.product};
 
   if (props.fields) {
     return (
       <div className={`component promo ${props.params.styles}`} id={id ? id : undefined}>
         <div className="component-content">
           <div className="field-promoicon">
-            <JssImage field={props.fields.PromoIcon} />
+            {// lelijke demo ready filter om de eerste 'originele' versie waar een daadwerkelijk plaatje van bestaat de vinden.
+              <img alt="test" src={"https://vgz-innovatie.sitecoresandbox.cloud/api/public/content/" + pCMProductToAsset.results.filter(x => x.assetToPublicLink.total > 0)[0].assetToPublicLink.results.find(x => x.relativeUrl != undefined && x.relativeUrl.includes('original'))?.relativeUrl}></img>
+            }
           </div>
           <div className="promo-text">
             <div>

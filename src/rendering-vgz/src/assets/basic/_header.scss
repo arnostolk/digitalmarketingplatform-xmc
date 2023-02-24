@@ -23,8 +23,8 @@ header {
     display: grid;
     grid-template-areas: "logo meta"
       "main main";
-    grid-template-columns: 100px 1fr;
-    grid-template-rows: 85px 40px;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 70px 55px;
     padding: 10px 15px 0;
     
     @media (min-width: 992px) {
@@ -70,13 +70,14 @@ header {
           white-space: nowrap;
           color: $vgz01;
           margin-right: 15px;
+          border: 0;
 
           &::after {
             content: ">";
             display: inline-block;
             transform: scaleX(1.5) translateY(1px) rotate(90deg);
             margin-left: 10px;
-          font-weight: bold;
+            font-weight: bold;
           }
         }
 

@@ -62,7 +62,7 @@ export const Default = (props: InsuranceProps): JSX.Element => {
 export const Details = (props: InsuranceProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
-  const { productName, productLongDescription, pCMPriceToProduct, productReimbursement, productNonReimbursement } = { ...props.product };
+  const { productName, productLongDescription, pCMPriceToProduct, productReimbursement, productNonReimbursement, pCMProductToAsset } = { ...props.product };
 
   if (props.fields) {
     return (
@@ -78,30 +78,39 @@ export const Details = (props: InsuranceProps): JSX.Element => {
                 <h1>{productName} voor {pCMPriceToProduct}</h1>
                 {
                   props.product && productLongDescription?.['en-US'] && productLongDescription?.['en-US'].length > 0 ?
-                    <><div dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /></> : null
+                    <div className="demo-details__kader" dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /> : null
                 }
               </div>
 
-              <hr />
-
-              <h3>Wat vergoedt de basisverzekering?</h3>
+              <h2>Wat vergoedt de basisverzekering?</h2>
               <p>De overheid bepaalt welke zorgkosten de basisverzekering vergoedt. Hieronder zie je voorbeelden van zorg die wel of niet uit de basisverzekering vergoed worden.</p>
 
-              <div>
+              <div className="demo-details__procons">
                 {
                   props.product && productReimbursement?.['en-US'] && productReimbursement?.['en-US'].length > 0 ?
-                    <><div dangerouslySetInnerHTML={{ __html: productReimbursement?.['en-US'] }} /></> : null
+                    <div dangerouslySetInnerHTML={{ __html: productReimbursement?.['en-US'] }} /> : null
                 }
 
                 {
                   props.product && productNonReimbursement?.['en-US'] && productNonReimbursement?.['en-US'].length > 0 ?
-                    <><div dangerouslySetInnerHTML={{ __html: productNonReimbursement?.['en-US'] }} /></> : null
+                    <div dangerouslySetInnerHTML={{ __html: productNonReimbursement?.['en-US'] }} /> : null
                 }
               </div>
             </div>
             <div className="field-promolink">
               {/* Promo link */}
               {/* <JssLink field={props.fields.PromoLink} /> */}
+            </div>
+            <hr />
+            <div className="image-variants-demo">
+              {pCMProductToAsset.results.map((assets, j) => {
+                return assets.assetToPublicLink.results.map((image, i) => {
+                  return <div key={i}>
+                    <span>{image.relativeUrl}</span>
+                    <img alt={image.relativeUrl} src={"https://vgz-innovatie.sitecoresandbox.cloud/api/public/content/" + image.relativeUrl}></img>
+                  </div>
+                })
+              })}
             </div>
           </div>
         </div>
