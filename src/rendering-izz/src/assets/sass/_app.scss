@@ -16,17 +16,18 @@ body {
   background: $page-bg;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   height: auto !important;
+
   &.on-page-editor {
     background: $page-bg-editor !important;
   }
 }
 
 a {
-  color: $text-basic;
+  color: $vgz03;
   cursor: pointer;
-  font-size: 0.85em;
+
   &:hover {
-    color: $text-basic-active;
+    color: $vgz04;
   }
 }
 
@@ -40,15 +41,15 @@ h6 {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 36px;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 26px;
 }
 
 h3 {
-  font-size: 1.2em;
+  font-size: 20px;
 }
 
 h4 {
@@ -99,4 +100,14 @@ ul li {
   padding: 10px;
   color:#fff;
   max-width: 500px;
+}
+
+.demo-details {
+  margin: 60px 15px 30px;
+  width: 50%;
+
+  .field-promotext p:first-of-type {
+    font-size: 20px;
+    margin-top: -20px;
+  }
 }

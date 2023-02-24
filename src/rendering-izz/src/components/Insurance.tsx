@@ -27,6 +27,8 @@ const InsuranceDefaultComponent = (props: InsuranceProps): JSX.Element => (
 export const Default = (props: InsuranceProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
+  const { productName, productLongDescription } = { ...props.product };
+
   if (props.fields) {
     return (
       <div className={`component promo ${props.params.styles}`} id={id ? id : undefined}>
@@ -38,12 +40,63 @@ export const Default = (props: InsuranceProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <h3>{props.product?.productName}</h3>
+                <h3>{productName}</h3>
                 {
-                  props.product ?
-                  <div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} /> : null
+                  productLongDescription ?
+                    <div dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /> : null
                 }
-                {/* <JssRichText field={props.fields.PromoText} /> */}
+              </div>
+            </div>
+            <div className="field-promolink">
+              {/* Promo link */}
+              {/* <JssLink field={props.fields.PromoLink} /> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  return <InsuranceDefaultComponent {...props} />;
+};
+
+export const Details = (props: InsuranceProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+
+  const { productName, productLongDescription, pCMPriceToProduct, productReimbursement, productNonReimbursement } = { ...props.product };
+
+  if (props.fields) {
+    return (
+      <div className={`component rich-text demo-details ${props.params.styles}`} id={id ? id : undefined}>
+        <div className="component-content">
+          <div className="field-promoicon">
+            {/* Image */}
+            {/* <JssImage field={props.fields.PromoIcon} /> */}
+          </div>
+          <div className="promo-text">
+            <div>
+              <div className="field-promotext">
+                <h1>{productName} voor {pCMPriceToProduct}</h1>
+                {
+                  props.product && productLongDescription?.['en-US'] && productLongDescription?.['en-US'].length > 0 ?
+                    <><div dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /></> : null
+                }
+              </div>
+
+              <hr />
+
+              <h3>Wat vergoedt de basisverzekering?</h3>
+              <p>De overheid bepaalt welke zorgkosten de basisverzekering vergoedt. Hieronder zie je voorbeelden van zorg die wel of niet uit de basisverzekering vergoed worden.</p>
+
+              <div>
+                {
+                  props.product && productReimbursement?.['en-US'] && productReimbursement?.['en-US'].length > 0 ?
+                    <><div dangerouslySetInnerHTML={{ __html: productReimbursement?.['en-US'] }} /></> : null
+                }
+
+                {
+                  props.product && productNonReimbursement?.['en-US'] && productNonReimbursement?.['en-US'].length > 0 ?
+                    <><div dangerouslySetInnerHTML={{ __html: productNonReimbursement?.['en-US'] }} /></> : null
+                }
               </div>
             </div>
             <div className="field-promolink">

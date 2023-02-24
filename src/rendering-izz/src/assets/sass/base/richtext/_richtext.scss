@@ -7,14 +7,17 @@ h6 {
   color: $text-heading-color;
   font-family: Roboto;
 }
+h1 {
+  color: $text-h1-color;
+}
 h1,
 h2 {
-  margin: $small-margin 0;
+  margin: 0 0 1em;
 }
 h3,
 h4,
 p {
-  margin: $extrasmall-margin 0;
+  margin: 0 0 1em;
 }
 h5,
 h6 {
@@ -27,22 +30,22 @@ ul,
 ol {
   padding-bottom: $extrasmall-margin;
   padding-top: $extrasmall-margin;
-  margin-left: $small-margin;
+  margin-left: 0;
 }
 li {
-  font-size: $font-normal;
+  font-size: 1em;
   margin-left: 15px;
 }
 ul {
   li {
     list-style: disc;
-    list-style-position: inside;
+    list-style-position: outside;
   }
 }
 ol {
   li {
     list-style: decimal;
-    list-style-position: inside;
+    list-style-position: outside;
   }
 }
 a {

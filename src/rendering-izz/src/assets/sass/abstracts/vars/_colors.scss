@@ -1,9 +1,9 @@
 // Vgz colors
-$vgz01: #4f1966;
+$vgz01: #0b6b6f;
 $vgz02: #e5f7f7;
 $vgz03: #006fce;
 $vgz04: #00549b;
-
+$vgz05: #0a9f8e;
 
 //Backgrounds colors
 $bg-transparent:transparent !default;
@@ -21,7 +21,8 @@ $bg-dark-gray: #262626;
 //Text colors
 $text-white:#fff !default;
 $text-heading-color: $vgz01 !default;
-$text-basic:#747474 !default;
+$text-h1-color: $vgz05 !default;
+$text-basic:#333 !default;
 $text-basic-active:#878787 !default;
 $text-blue:#89C6CC !default;
 $text-blue-active:#15909c !default;
@@ -166,8 +167,8 @@ $promo-shadow-border:$border-basic-color;
 $rich-content-bg:transparent;
 $rich-content-color:$text-basic;
 $rich-content-border:transparent;
-$rich-content-link-color:$text-red;
-$rich-content-link-color-active:$text-basic-active;
+$rich-content-link-color: $vgz03;
+$rich-content-link-color-active: $vgz04;
 //Search
 $search-filter:$text-basic;
 $search-filter-border:$border-basic-color;
