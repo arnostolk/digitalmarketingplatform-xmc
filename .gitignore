@@ -82,3 +82,5 @@ packages/
 # node modules
 node_modules
 .env.local
+
+*rawlogs.json
