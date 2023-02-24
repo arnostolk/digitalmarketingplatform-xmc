@@ -50,12 +50,16 @@ export const Block = (props: PromoProps): JSX.Element => {
               <div className="field-promotext">
                 {
                   props.product && productLongDescription?.['en-US'] && productLongDescription?.['en-US'].length > 0 ?
-                    <><h4 style={{textAlign: 'center', fontSize: '26px', margin: '20px'}}>{productName}</h4>
-                    <div style={{margin: '20px', textAlign: 'center'}}>
-                      <p><h4 style={{fontSize: '26px', fontWeight: 'normal'}}>{pCMPriceToProduct}</h4></p>
-                      <p>per maand</p>
-                    </div>
-                    <div dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /></> : <JssRichText field={props.fields.PromoText} />
+                    <>
+                      <div className="product-identifier">
+                        <h2>{productName}</h2>
+                        <p>
+                          <span>{pCMPriceToProduct}</span>
+                          per maand
+                        </p>
+                      </div>
+                      <div dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} />
+                    </> : <JssRichText field={props.fields.PromoText} />
                 }
               </div>
             </div>
