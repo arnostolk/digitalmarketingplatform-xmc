@@ -1,5 +1,5 @@
+import { ContentHubAsset } from "./ContentHubAsset";
 import { LongString } from "./LongString";
-import { RelativeAssetLink } from "./RelativeAssetLink";
 
 export type PcmProduct = {
 	id: string;
@@ -15,6 +15,6 @@ export type PcmProduct = {
 	};
 	pCMProductToAsset: {
 		total: number;
-		results: RelativeAssetLink[];
+		results: ContentHubAsset[];
 	}
 }
