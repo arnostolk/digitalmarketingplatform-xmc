@@ -111,3 +111,38 @@ ul li {
     margin-top: -20px;
   }
 }
+
+.product-identifier {
+  text-align: center;
+  margin: 10px 0 30px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  span {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0;
+    font-size: 26px;
+    color: $vgz01;
+  }
+}
+
+.field-promotext p:has(> img:first-child) {
+  padding-left: 60px;
+  text-indent: -0.65em;
+  margin: .2em 0 1.2em;
+  min-height: 40px;
+
+  img {
+    position: absolute;
+    margin-left: calc(.65em - 60px);
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
