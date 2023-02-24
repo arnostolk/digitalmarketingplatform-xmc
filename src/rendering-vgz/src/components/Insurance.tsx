@@ -64,7 +64,7 @@ export const Details = (props: InsuranceProps): JSX.Element => {
 
   if (props.fields) {
     return (
-      <div className={`component promo ${props.params.styles}`} id={id ? id : undefined}>
+      <div className={`component rich-text demo-details ${props.params.styles}`} id={id ? id : undefined}>
         <div className="component-content">
           <div className="field-promoicon">
             {/* Image */}
@@ -73,7 +73,7 @@ export const Details = (props: InsuranceProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <h3>{props.product?.productName}</h3>
+                <h1>{props.product?.productName}</h1>
                 {
                   props.product ?
                   <div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} /> : null
