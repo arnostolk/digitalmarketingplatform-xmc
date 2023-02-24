@@ -34,7 +34,9 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
 );
 
 export const Block = (props: PromoProps): JSX.Element => {
+
   const id = props.params.RenderingIdentifier;
+  const { productName, productLongDescription } = {...props.product};
 
   if (props.fields) {
     return (
@@ -47,8 +49,8 @@ export const Block = (props: PromoProps): JSX.Element => {
             <div>
               <div className="field-promotext">
                 {
-                  props.product && props.product.productLongDescription?.['en-US'] && props.product.productLongDescription?.['en-US'].length > 0 ?
-                    <><h4>{props.product.productName}</h4><div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} /></> : <JssRichText field={props.fields.PromoText} />
+                  props.product && productLongDescription?.['en-US'] && productLongDescription?.['en-US'].length > 0 ?
+                    <><h4>{productName}</h4><div dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /></> : <JssRichText field={props.fields.PromoText} />
                 }
                 {/* <JssRichText field={props.fields.PromoText} /> */}
               </div>

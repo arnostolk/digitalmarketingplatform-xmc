@@ -17,9 +17,34 @@ export const GET_PRODUCTS_QUERY = gql`
 export const GET_PRODUCT_QUERY = gql`
 query product($id: String!){
 	m_PCM_Product(id: $id) {
-		productName
-		productLongDescription
-		pCMPriceToProduct
+		 id
+      productName
+      
+      pCMPriceToProduct
+      productShortDescription
+      productLongDescription
+      productReimbursement
+      productNonReimbursement
+			productLabel
+      
+      yearToPCMProduct {
+        taxonomyLabel
+      }
+      
+      pCMProductToAsset {
+        total
+        results {
+          title
+         
+          assetToPublicLink {
+            total
+            results {
+              
+              relativeUrl
+            }
+          }
+        }
+      }
 	}
 }
 `;
