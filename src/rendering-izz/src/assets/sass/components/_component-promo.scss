@@ -1,0 +1,105 @@
+@import "@sass/abstracts/vars";
+@import "@sass/abstracts/mixins";
+@import "@sass/abstracts/vars/colors";
+
+.promo {
+    background: $promo-bg;
+    padding: 15px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    h4, p, ul {
+      margin: 0 0 1em;
+    }
+  
+    ul {
+      margin-left: 0;
+      padding-left: 10px;
+    }
+    ul li {
+      font-size: 1em;
+      list-style-position: outside;
+    }
+  
+    &.promo a {
+        color: $vgz03;
+      &:hover {
+        color: $vgz04;
+      }
+    }
+  
+    .field-promotext {
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    >.component-content {
+        position: relative;
+        @include clearfix();
+        @include border-basic(all, $promo-border);
+        border-radius: 10px;
+        box-shadow: 0 2px 6px 0 rgb(0 0 0 / 35%), 0 1px 2px 0 rgb(0 0 0 / 20%);
+
+        .promo-text {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+    .zg-height-fix {
+        .field-promoicon {
+            margin-top: 100px;
+        }
+    }
+    .field-promoicon {
+        overflow: hidden;
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .field-promolink {
+        padding-bottom: 0;
+
+        a {
+            color: $vgz03;
+            background-color: #fff;
+            transition: background-color .3s ease-out;
+            display: flex;
+            text-decoration: none;
+            padding: 7px 20px;
+            margin-bottom: 0;
+            border: 2px solid $vgz03;
+            background-image: none;
+            border-radius: 22.5px;
+            justify-content: center;
+            align-items: center;
+            font-family: Roboto,sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+
+            &:hover {
+                color: #fff;
+                background-color: $vgz04;
+                text-decoration: none;
+                text-decoration: none;
+                border: 2px solid $vgz04;
+            }
+        }
+    }
+    &.image-full-size {
+        img {
+            margin-bottom: 10px;
+        }
+    }
+    @import "@sass/variants/promo";
+    @import "@sass/base/richtext/richtext";
+}
