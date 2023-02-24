@@ -58,6 +58,40 @@ export const Default = (props: InsuranceProps): JSX.Element => {
   return <InsuranceDefaultComponent {...props} />;
 };
 
+export const Details = (props: InsuranceProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+
+  if (props.fields) {
+    return (
+      <div className={`component promo ${props.params.styles}`} id={id ? id : undefined}>
+        <div className="component-content">
+          <div className="field-promoicon">
+            {/* Image */}
+            {/* <JssImage field={props.fields.PromoIcon} /> */}
+          </div>
+          <div className="promo-text">
+            <div>
+              <div className="field-promotext">
+                <h3>{props.product?.productName}</h3>
+                {
+                  props.product ?
+                  <div dangerouslySetInnerHTML={{ __html: props.product.productLongDescription?.['en-US'] }} /> : null
+                }
+                {/* <JssRichText field={props.fields.PromoText} /> */}
+              </div>
+            </div>
+            <div className="field-promolink">
+              {/* Promo link */}
+              {/* <JssLink field={props.fields.PromoLink} /> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  return <InsuranceDefaultComponent {...props} />;
+};
+
 export const getServerSideProps: GetServerSideComponentProps = async (rendering) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const id = (rendering as any).fields?.ContentHubGuid.value;
