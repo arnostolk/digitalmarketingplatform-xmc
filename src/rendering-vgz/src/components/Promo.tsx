@@ -36,7 +36,7 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
 export const Block = (props: PromoProps): JSX.Element => {
 
   const id = props.params.RenderingIdentifier;
-  const { productName, productLongDescription } = {...props.product};
+  const { productName, productLongDescription, pCMPriceToProduct } = {...props.product};
 
   if (props.fields) {
     return (
@@ -50,9 +50,13 @@ export const Block = (props: PromoProps): JSX.Element => {
               <div className="field-promotext">
                 {
                   props.product && productLongDescription?.['en-US'] && productLongDescription?.['en-US'].length > 0 ?
-                    <><h4>{productName}</h4><div dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /></> : <JssRichText field={props.fields.PromoText} />
+                    <><h4 style={{textAlign: 'center', fontSize: '26px', margin: '20px'}}>{productName}</h4>
+                    <div style={{margin: '20px', textAlign: 'center'}}>
+                      <p><h4 style={{fontSize: '26px', fontWeight: 'normal'}}>{pCMPriceToProduct}</h4></p>
+                      <p>per maand</p>
+                    </div>
+                    <div dangerouslySetInnerHTML={{ __html: productLongDescription?.['en-US'] }} /></> : <JssRichText field={props.fields.PromoText} />
                 }
-                {/* <JssRichText field={props.fields.PromoText} /> */}
               </div>
             </div>
             <div className="field-promolink">
