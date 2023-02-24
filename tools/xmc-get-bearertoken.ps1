@@ -9,14 +9,14 @@ $DebugPreference = 'SilentlyContinue' # change to Continue to see debug output
 $ErrorActionPreference = 'Stop'
 
 Push-Location -Path $PSScriptRoot\..
-if (-not (Test-Path -Path .\tools\xmcloud-config.json)) {
-    Write-Error "File .\tools\xmcloud-config.json does not exist"
+if (-not (Test-Path -Path .\tools\xmc-config.json)) {
+    Write-Error "File .\tools\xmc-config.json does not exist"
 }
-$xmcloudConfig = Get-Content -Raw -Path .\tools\xmcloud-config.json | ConvertFrom-Json
+$xmcloudConfig = Get-Content -Raw -Path .\tools\xmc-config.json | ConvertFrom-Json
 
 $clientId = $xmcloudConfig.XMCloud_AutomationClient_ClientId
 $clientSecret = $xmcloudConfig.XMCloud_AutomationClient_ClientSecret
 if (-not ($clientId -and $clientSecret)) {
-    Write-Verbose "XM Cloud organization client id and client secret not found in file .\tools\xmcloud-config.json."
+    Write-Verbose "XM Cloud organization client id and client secret not found in file .\tools\xmc-config.json."
 }
 curl --request POST --url "https://auth.sitecorecloud.io/oauth/token" --header "content-type: application/x-www-form-urlencoded" --data audience=https://api.sitecorecloud.io --data grant_type=client_credentials --data client_id=$clientId --data client_secret=$clientSecret

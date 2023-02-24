@@ -1,9 +1,9 @@
 # Execute a build and deploy of you project to an XM Cloud environment from the CLI.
-# Configuration is done in the file tools\xmcloud-config.json.
-# Documentation on configuration can be found in the file tools\xmcloud-config.json.
+# Configuration is done in the file tools\xmc-config.json.
+# Documentation on configuration can be found in the file tools\xmc-config.json.
 #
 # When the build is completed the raw log file is retrieved and split into separate log files per stage
-# using the script tools\xmcloud-buildanddeploy-getlogs.ps1.
+# using the script tools\xmc-buildanddeploy-getlogs.ps1.
 # Log files are storted in the folder deployment-logs.
 #
 # To check if too many files are packaged in the deployment package, execute:
@@ -21,9 +21,9 @@ $ErrorActionPreference = 'Stop'
 
 Push-Location -Path $PSScriptRoot\..
 
-. "$PSScriptRoot\xmcloud-org-login.ps1" -environment $environment
+. "$PSScriptRoot\xmc-org-login.ps1" -environment $environment
 
-$xmcloudConfig = Get-Content -Raw -Path .\tools\xmcloud-config.json | ConvertFrom-Json
+$xmcloudConfig = Get-Content -Raw -Path .\tools\xmc-config.json | ConvertFrom-Json
 $environmentInfo = $xmcloudConfig.XMCloud_Environments.$environment
 $environmentId =$environmentInfo.id
 
@@ -60,10 +60,10 @@ dotnet sitecore cloud deployment start --deployment-id $deploymentId
 Write-Host "Build and deploy completed."
 
 # Process the deployment log to create sensible information
-if (-not (Test-Path -Path "$PSScriptRoot\xmcloud-buildanddeploy-getlogs.ps1")) {
-    Write-Error "Expected file '$PSScriptRoot\xmcloud-buildanddeploy-getlogs.ps1' does not exist."
+if (-not (Test-Path -Path "$PSScriptRoot\xmc-buildanddeploy-getlogs.ps1")) {
+    Write-Error "Expected file '$PSScriptRoot\xmc-buildanddeploy-getlogs.ps1' does not exist."
 }
-. "$PSScriptRoot\xmcloud-buildanddeploy-getlogs.ps1" -deploymentId $deploymentId
+. "$PSScriptRoot\xmc-buildanddeploy-getlogs.ps1" -deploymentId $deploymentId
 Pop-Location
 
 # Ring the bell to indicate the script has completed
