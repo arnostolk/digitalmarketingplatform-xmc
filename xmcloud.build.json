@@ -1,13 +1,31 @@
 {
     "renderingHosts": {
         "xmcloudpreview": {
-            "path": "./src/rendering-vgz",
+            "path": "./src/sxastarter",
             "nodeVersion": "16.15.1",
             "jssDeploymentSecret":"110F1C44A496B45478640DD36F80C18C9",
             "enabled": true,
             "type": "sxa",
             "lintCommand": "lint",
             "startCommand": "start:production"
+        },
+        "vgzpreview": {
+          "path": "./src/rendering-vgz",
+          "nodeVersion": "16.15.1",
+          "jssDeploymentSecret":"110F1C44A496B45478640DD36F80C18C9",
+          "enabled": true,
+          "type": "sxa",
+          "lintCommand": "lint",
+          "startCommand": "start:production"
+        },
+        "izzpreview": {
+          "path": "./src/rendering-izz",
+          "nodeVersion": "16.15.1",
+          "jssDeploymentSecret":"110F1C44A496B45478640DD36F80C18C9",
+          "enabled": true,
+          "type": "sxa",
+          "lintCommand": "lint",
+          "startCommand": "start:production"
         }
     },
     "postActions": {
