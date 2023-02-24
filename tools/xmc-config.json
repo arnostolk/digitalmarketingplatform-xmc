@@ -1,13 +1,13 @@
 {
     "XMCloud_Environments": {
-        "devserge": {
-            "id": "4Rj7fIgRlMpnZ6qvyke6NR",
-            "cm": "https://xmc-macaw-macawinnovation-devseb85.sitecorecloud.io",
-            "spe_username": "sitecore\\speremoting",
-            "spe_sharedsecret": "488A5C747D63B56FD55AC4AA3FB1DD163E48F7801EBB58B9DEC68102D0C3D959"
+        "vgzdevelop": {
+            "id": "5IeM832SxMjGkk0r50EiVb",
+            "cm": "https://xmc-macaw-macawinnovation-vgzdevelop.sitecorecloud.io/",
+            "spe_username": "<NOT USED YET>",
+            "spe_password": "<NOT USED YET>"
         }
     },
     "==== Organization Authentication Client Id and Secret ====": "See: https://deploy.sitecorecloud.io/auth-clients/organization",
-    "XMCloud_AutomationClient_ClientId": "DzPf7bSOQVXOxxAKx0z22uYc1y6lSkYa",
+    "XMCloud_AutomationClient_ClientId": "F70Ei6QtU52Hn3Bag0YqS3KLdW6t2EaX",
     "XMCloud_AutomationClient_ClientSecret": ""
 }
