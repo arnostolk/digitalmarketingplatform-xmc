@@ -103,7 +103,7 @@ export const Details = (props: InsuranceProps): JSX.Element => {
             </div>
             <hr />
             <div className="image-variants-demo">
-              {pCMProductToAsset.results.map((assets, j) => {
+              {pCMProductToAsset.results.map((assets) => {
                 return assets.assetToPublicLink.results.map((image, i) => {
                   return <div key={i}>
                     <span>{image.relativeUrl}</span>
