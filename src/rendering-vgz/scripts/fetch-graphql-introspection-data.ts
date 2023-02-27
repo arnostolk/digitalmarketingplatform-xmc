@@ -23,9 +23,8 @@ try {
 
 console.log(`Fetch graphql introspection data from ${jssConfig.graphQLEndpoint}...`);
 
-console.log("DSDSDDDDDDDDDD", jssConfig.graphQLEndpoint)
-const client = new GraphQLRequestClient("https://vgz-innovatie.sitecoresandbox.cloud/api/graphql/preview/v1?apikey=ZDZYZlhyZGw4Rit1RUZSMVNKVGJqNzVEMG5ubVNJdEJ1L0JoRHhaSWdIcz18aGMtbWFjYXctNTM4MGM=", {
-  apiKey: jssConfig.sitecoreApiKey,
+const client = new GraphQLRequestClient("https://edge-beta.sitecorecloud.io/api/graphql/v1", {
+  apiKey: 'NDduM2V4dHpQQkJRQmJ5U09sNTlZczVDQ1J4ancvN2JOalFWdXUycFIvYz18dmd6LWlubm92YXRpZTdjOTc4YmQ2',
 });
 
 client
